@@ -212,7 +212,7 @@ Public Class ReadPDF
         End Using
     End Sub
 
-    Public Sub DeletePages(ByVal Ruta As String, ByVal pdfFileName As String, aPaginas_Delete() As Integer, ByVal replace_original As Boolean)
+    Public Sub DeletePages(ByVal Ruta As String, ByVal pdfFileName As String, aPaginas_Delete As List(Of Integer), ByVal replace_original As Boolean)
 
         Dim filename As String = ""
         Using reader As New PdfReader(Ruta + pdfFileName)
@@ -228,11 +228,15 @@ Public Class ReadPDF
 
             For pagenumber As Integer = 1 To N_Final_Pag
 
-                If (System.Array.IndexOf(aPaginas_Delete, pagenumber) >= 0) Then
+                'If (System.Array.IndexOf(aPaginas_Delete, pagenumber) >= 0) Then
+                'Else
+                '    pdfCopy.AddPage(pdfCopy.GetImportedPage(reader, pagenumber))
+                'End If
+
+                If (aPaginas_Delete.Contains(pagenumber)) Then
                 Else
                     pdfCopy.AddPage(pdfCopy.GetImportedPage(reader, pagenumber))
                 End If
-
             Next
 
             document.Close()

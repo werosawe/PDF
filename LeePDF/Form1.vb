@@ -1,29 +1,32 @@
 ﻿Public Class Form1
-    Private mainPath As String = "C:\Desarrollo\VS2010\PDF\LeePDF\Output"
+    Private mainPath As String = ""
 
     Public Sub New()
         InitializeComponent()
-        Load_Grid_PDF()
+
+        mainPath = txtFolderOutput.Text
+
+        ''Load_Grid_PDF()
     End Sub
 
-    Private Sub Load_Grid_PDF()
+    'Private Sub Load_Grid_PDF()
 
-        Dim oListPDF As New ListPDF
+    '    Dim oListPDF As New ListPDF
 
-        dgrPDF.DataSource = oListPDF.Fileinfo_To_DataTable("C:\Info_Sistemas\OROP\Proyectos SROP 2015\Escaneo Exp\Exp OP Scaneados (Res 208-2016-JNE)")
+    '    dgrPDF.DataSource = oListPDF.Fileinfo_To_DataTable("C:\Info_Sistemas\OROP\Proyectos SROP 2015\Escaneo Exp\Exp OP Scaneados (Res 208-2016-JNE)")
 
-        Formatea_GridView()
+    '    Formatea_GridView()
 
-    End Sub
+    'End Sub
 
-    Private Sub Formatea_GridView()
+    'Private Sub Formatea_GridView()
 
-        dgrPDF.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgrPDF.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgrPDF.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+    '    dgrPDF.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+    '    dgrPDF.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+    '    dgrPDF.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 
-        dgrPDF.Refresh()
-    End Sub
+    '    dgrPDF.Refresh()
+    'End Sub
 
     Private Sub LeerPDF_Click(sender As System.Object, e As System.EventArgs) Handles LeerPDF.Click
 
@@ -132,8 +135,17 @@
         Dim Ruta As String = mainPath
         Dim pdfFileName As String = "\" + NombreArchivo() + ".pdf"
 
+        Dim numbers As New List(Of Integer)
+        Dim i As Integer
+        Dim Ini As Integer = If(String.IsNullOrEmpty(txtPagIni.Text), 0, txtPagIni.Text)
+        Dim Fin As Integer = If(String.IsNullOrEmpty(txtPagFin.Text), 0, txtPagFin.Text)
+        For i = Ini To Fin
+            numbers.Add(i)
+        Next
+
         Dim oReadPDF As New ReadPDF
-        oReadPDF.DeletePages(Ruta, pdfFileName, {2, 3, 4, 5}, False)
+        ''oReadPDF.DeletePages(Ruta, pdfFileName, {2, 3, 4, 5}, False)
+        oReadPDF.DeletePages(Ruta, pdfFileName, numbers, False)
 
         MessageBox.Show("Fin del Proceso!")
     End Sub
@@ -144,12 +156,15 @@
 
         Dim oReadPDF As New ReadPDF
 
+        Dim numbers As New List(Of Integer)
+        numbers.Add(2)
+
         Dim pdfFiles() As String = Get_PDF_files(mainPath)
 
         For Each file As String In pdfFiles
 
-            
-            oReadPDF.DeletePages(Ruta & "\", System.IO.Path.GetFileNameWithoutExtension(file) & ".pdf", {2}, True)
+
+            oReadPDF.DeletePages(Ruta & "\", System.IO.Path.GetFileNameWithoutExtension(file) & ".pdf", numbers, True)
 
         Next
 
@@ -347,5 +362,7 @@
         MessageBox.Show("Fin del Proceso!")
 
     End Sub
+
+
 End Class
 
