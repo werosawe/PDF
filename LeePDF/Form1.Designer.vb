@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LeerPDF = New System.Windows.Forms.Button()
         Me.btn_Split_Page_by_Page = New System.Windows.Forms.Button()
@@ -59,7 +59,7 @@ Partial Class Form1
         'LeerPDF
         '
         Me.LeerPDF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.LeerPDF.Location = New System.Drawing.Point(361, 112)
+        Me.LeerPDF.Location = New System.Drawing.Point(314, 112)
         Me.LeerPDF.Name = "LeerPDF"
         Me.LeerPDF.Size = New System.Drawing.Size(120, 53)
         Me.LeerPDF.TabIndex = 0
@@ -286,7 +286,7 @@ Partial Class Form1
         'btnNeevia
         '
         Me.btnNeevia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNeevia.Location = New System.Drawing.Point(361, 453)
+        Me.btnNeevia.Location = New System.Drawing.Point(314, 451)
         Me.btnNeevia.Name = "btnNeevia"
         Me.btnNeevia.Size = New System.Drawing.Size(119, 55)
         Me.btnNeevia.TabIndex = 28
@@ -300,13 +300,13 @@ Partial Class Form1
         Me.btn_RotarPDF.Name = "btn_RotarPDF"
         Me.btn_RotarPDF.Size = New System.Drawing.Size(119, 55)
         Me.btn_RotarPDF.TabIndex = 29
-        Me.btn_RotarPDF.Text = "Rotar PDF (90° derecha)"
+        Me.btn_RotarPDF.Text = "Rotar PDF (90° Derecha)"
         Me.btn_RotarPDF.UseVisualStyleBackColor = True
         '
         'btn_CropPDF
         '
         Me.btn_CropPDF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.btn_CropPDF.Location = New System.Drawing.Point(362, 526)
+        Me.btn_CropPDF.Location = New System.Drawing.Point(314, 526)
         Me.btn_CropPDF.Name = "btn_CropPDF"
         Me.btn_CropPDF.Size = New System.Drawing.Size(119, 55)
         Me.btn_CropPDF.TabIndex = 30
@@ -354,7 +354,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(514, 601)
+        Me.ClientSize = New System.Drawing.Size(471, 601)
         Me.Controls.Add(Me.txtFolderOutput)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnFoliarDobleHoja)

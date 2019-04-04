@@ -433,7 +433,7 @@ Public Class ReadPDF
         Return dotnetImg
     End Function
 
-    Public Sub RotatePdf(src As String, dest As String)
+    Public Sub RotatePdf_90d(src As String, dest As String)
 
         '' rota 90° a la derecha
 
@@ -456,6 +456,8 @@ Public Class ReadPDF
         stamper.Close()
         reader.Close()
     End Sub
+
+
 
     Public Sub CropPdf(src As String, dest As String)
 

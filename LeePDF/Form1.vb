@@ -310,7 +310,8 @@
             Dim dest As String = mainPath & "\" & System.IO.Path.GetFileNameWithoutExtension(file) & ".r.pdf"
 
             '' rota 90° a la derecha
-            oReadPDF.RotatePdf(file, dest)
+            oReadPDF.RotatePdf_90d(file, dest)
+
         Next
 
         MessageBox.Show("Fin del Proceso!")
